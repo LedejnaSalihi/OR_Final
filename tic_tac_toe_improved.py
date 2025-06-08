@@ -108,7 +108,7 @@ def get_enhanced_reward(state, action, next_state, winner, player='O'):
     # Reward for taking advantage of one's own winning opportunity
     can_win, win_pos = detect_winning_opportunity(state, player)
     if can_win and action == win_pos:
-        additional_reward += 0.8  # Very high reward for winning moves
+        additional_reward += 1.5 # Very high reward for winning moves
 
     # Reward for moves in the center (strategically valuable)
     if action == 4 and state[4] == '_':
@@ -518,9 +518,9 @@ class TicTacToeGUI:
             alpha = float(self.param_entries["Alpha:"].get())
             gamma = float(self.param_entries["Gamma:"].get())
             decay = float(self.param_entries["Decay:"].get())
-            episodes = int(self.param_entries["Episoden:"].get())
-            eval_interval = int(self.param_entries["Eval-Intervall:"].get())
-            eval_games = int(self.param_entries["Eval-Spiele:"].get())
+            episodes= int(self.param_entries["Episodes:"].get())
+            eval_interval= int(self.param_entries["Eval-Interval:"].get())
+            eval_games = int(self.param_entries["Eval-Games:"].get())
         except ValueError:
             messagebox.showerror("Invalid input", "Please enter valid numbers for all parameters.")
             return
