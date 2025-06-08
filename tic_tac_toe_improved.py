@@ -108,7 +108,7 @@ def get_enhanced_reward(state, action, next_state, winner, player='O'):
     # Reward for taking advantage of one's own winning opportunity
     can_win, win_pos = detect_winning_opportunity(state, player)
     if can_win and action == win_pos:
-        additional_reward += 1.5 # Very high reward for winning moves
+        additional_reward += 0.8 # Very high reward for winning moves
 
     # Reward for moves in the center (strategically valuable)
     if action == 4 and state[4] == '_':
